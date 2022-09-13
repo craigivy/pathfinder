@@ -14,14 +14,14 @@ Using this solution will require the name of the service to be included in your 
 ```
 gcloud run deploy employee \
   --source=. \
-  --allow-unauthenticated \
+  --ingress=internal-and-cloud-load-balancing \
   --ingress=all \
   --region=us-central1 
 
 gcloud run deploy product \
   --source=. \
   --allow-unauthenticated \
-  --ingress=all \
+  --ingress=internal-and-cloud-load-balancing \
   --region=us-central1 
 ```
 
