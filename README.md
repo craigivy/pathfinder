@@ -3,14 +3,14 @@ When adding additional Cloud Run services development teams enjoy focusing on ap
 
 This is example of how to use the `URL masking` feature of the internal load balancer to call cloud run services dynamically without additional load balancer  configuration for additional cloud run services.
 
-For the most part this is already documented here - https://cloud.google.com/load-balancing/docs/l7-internal/setting-up-l7-internal-serverless and the URL mask feature will be used - https://cloud.google.com/load-balancing/docs/l7-internal/setting-up-l7-internal-serverless#using-url-mask.
+For the most part this is already [documented](https://cloud.google.com/load-balancing/docs/l7-internal/setting-up-l7-internal-serverless). This example will incorporate the [URL mask feature](https://cloud.google.com/load-balancing/docs/l7-internal/setting-up-l7-internal-serverless#using-url-mask) allow for us to understand the URL path mapping.
 
-Using this solution will require the name of your to be included in your path,  for example image you have an employee service and it a has a find fuction mapped to the url /find.  After implementing this solution the URL the service will get is /employee/find.  This will require you to update your path prefix to include the service name.
+Using this solution will require the name of the service to be included in your path,  for example image you have an employee service and it a has a find fuction mapped to the url `/find`.  After implementing this solution the URL the service will get is `/employee/find`.  This will require you to update your path prefix to include the service name.
 
 ## Demo
 * Follow the instructions in [Set up an internal HTTP(S) load balancer with Cloud Run](https://cloud.google.com/load-balancing/docs/l7-internal/setting-up-l7-internal-serverless) with the following exceptions bulleted below.  Use the `gcloud` version of the instructions and HTTP protocol. The instructions can be adjusted for external the external loadbalancer and HTTPS.
 
-* We will use a dynamic go lang application to help understand this. Instead of using the service defined at [Deploy a Cloud Run service](https://cloud.google.com/load-balancing/docs/l7-internal/setting-up-l7-internal-serverless#deploy_serverless_app) use the services defined belos
+* We will use a dynamic go lang application to help understand this. Instead of using the service defined at [Deploy a Cloud Run service](https://cloud.google.com/load-balancing/docs/l7-internal/setting-up-l7-internal-serverless#deploy_serverless_app) use the services defined below.
 ```
 gcloud run deploy employee \
   --source=. \
