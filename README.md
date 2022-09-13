@@ -3,7 +3,7 @@ When adding additional Cloud Run services development teams enjoy focusing on ap
 
 This is example of how to use the `URL masking` feature of the internal load balancer to call cloud run services dynamically without additional load balancer  configuration for additional cloud run services.
 
-For the most part this is already [documented](https://cloud.google.com/load-balancing/docs/l7-internal/setting-up-l7-internal-serverless). This example will incorporate the [URL mask feature](https://cloud.google.com/load-balancing/docs/l7-internal/setting-up-l7-internal-serverless#using-url-mask) allow for us to understand the URL path mapping.
+For the most part this is already [documented](https://cloud.google.com/load-balancing/docs/l7-internal/setting-up-l7-internal-serverless). This example will incorporates the [URL mask feature](https://cloud.google.com/load-balancing/docs/l7-internal/setting-up-l7-internal-serverless#using-url-mask) allowing us to understand how the URL path mapping will work.
 
 Using this solution will require the name of the service to be included in your path,  for example image you have an employee service and it a has a find fuction mapped to the url `/find`.  After implementing this solution the URL the service will get is `/employee/find`.  This will require you to update your path prefix to include the service name.
 
